@@ -8,6 +8,11 @@
 import UIKit
 import CoreBluetooth
 
+class DeviceTableCell: UITableViewCell {
+    @IBOutlet var deviceIDLabel: UILabel!
+    
+}
+
 class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate, UITableViewDelegate,  UITableViewDataSource {
 
     // cell reuse id (cells that scroll out of view can be reused)
@@ -24,7 +29,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DeviceCell", for: indexPath)
+        let cell:DeviceTableCell = self.deviceTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! DeviceTableCell
 
         let device = devices[indexPath.row]
         cell.textLabel?.text = String(format:"%llX", device)
@@ -37,6 +42,15 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         let selectedDevice = devices[indexPath.row]
         let selectedDeviceStr = String(format: "%llX", selectedDevice)
         print("device at row \(indexPath.row) is \(selectedDeviceStr)")
+        scanButton.setTitle("Start Scanning", for: .normal)
+        scanning = false
+        centralManager.stopScan()
+        /*
+        if let viewController = storyboard?.instantiateViewController(identifier: "SingleTagViewController") as? SingleTagViewController {
+                viewController.device = selectedDevice
+                navigationController?.pushViewController(viewController, animated: true)
+        }*/
+        performSegue(withIdentifier: "ShowSingleDetail", sender: self)
     }
     
     var centralManager: CBCentralManager!
@@ -109,6 +123,19 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*if let target = segue.instantiateViewController(identifier: "SingleTagViewController") as? SingleTagViewController {
+            target.device = devices[selectedPath.row]
+        }*/
+        print(segue.identifier)
+        if segue.identifier == "ShowSingleDetail",
+           let destination = segue.destination as? SingleTagViewController,
+           let selectedPath = deviceTableView.indexPathForSelectedRow?.row {
+            destination.device = devices[selectedPath]
+
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,6 +151,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         // This view controller itself will provide the delegate methods and row data for the table view.
         deviceTableView.delegate = self
         deviceTableView.dataSource = self
+        deviceTableView.register(DeviceTableCell.self, forCellReuseIdentifier: "DeviceCell")
     }
 
 
