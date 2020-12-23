@@ -21,11 +21,69 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="py3-OL-fds">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9h-yL-CDG" userLabel="LabelView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BT710 Tag Programmer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wH-jJ-k7I" userLabel="Title">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="3wH-jJ-k7I" firstAttribute="centerX" secondItem="Y9h-yL-CDG" secondAttribute="centerX" id="K5p-at-vui"/>
+                                            <constraint firstItem="3wH-jJ-k7I" firstAttribute="height" secondItem="Y9h-yL-CDG" secondAttribute="height" id="OMa-rx-57E"/>
+                                            <constraint firstItem="3wH-jJ-k7I" firstAttribute="width" secondItem="Y9h-yL-CDG" secondAttribute="width" id="mrx-Tl-kHX"/>
+                                            <constraint firstItem="3wH-jJ-k7I" firstAttribute="centerY" secondItem="Y9h-yL-CDG" secondAttribute="centerY" id="xYX-BU-WTy"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9P-Xi-tce" userLabel="LogoHorizontalStackView">
+                                        <rect key="frame" x="0.0" y="96" width="414" height="192.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMl-M6-B14" userLabel="V2SoftLogoView">
+                                                <rect key="frame" x="0.0" y="0.0" width="174" height="192.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v2soft-logo" translatesAutoresizingMaskIntoConstraints="NO" id="kOC-i1-RTZ" userLabel="V2SoftLogo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="192.5"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="kOC-i1-RTZ" firstAttribute="centerX" secondItem="hMl-M6-B14" secondAttribute="centerX" id="2v9-H6-0OQ"/>
+                                                    <constraint firstItem="kOC-i1-RTZ" firstAttribute="width" secondItem="hMl-M6-B14" secondAttribute="width" id="JVG-Fq-1bS"/>
+                                                    <constraint firstItem="kOC-i1-RTZ" firstAttribute="height" secondItem="hMl-M6-B14" secondAttribute="height" id="LMn-9f-svH"/>
+                                                    <constraint firstItem="kOC-i1-RTZ" firstAttribute="centerY" secondItem="hMl-M6-B14" secondAttribute="centerY" id="su8-7s-Y8r"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDU-mP-3U2" userLabel="BT710ClipView">
+                                                <rect key="frame" x="174" y="0.0" width="240" height="192.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bt710-clip" translatesAutoresizingMaskIntoConstraints="NO" id="BtF-eO-tj1" userLabel="BT710Clip">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="192.5"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="BtF-eO-tj1" firstAttribute="centerY" secondItem="yDU-mP-3U2" secondAttribute="centerY" id="E04-bI-HWC"/>
+                                                    <constraint firstItem="BtF-eO-tj1" firstAttribute="centerX" secondItem="yDU-mP-3U2" secondAttribute="centerX" id="EAW-ek-HUx"/>
+                                                    <constraint firstItem="BtF-eO-tj1" firstAttribute="width" secondItem="yDU-mP-3U2" secondAttribute="width" id="aXl-Hh-y6c"/>
+                                                    <constraint firstItem="BtF-eO-tj1" firstAttribute="height" secondItem="yDU-mP-3U2" secondAttribute="height" id="zBW-4O-BD7"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="hMl-M6-B14" firstAttribute="height" secondItem="G9P-Xi-tce" secondAttribute="height" id="P94-h6-dXH"/>
+                                            <constraint firstItem="hMl-M6-B14" firstAttribute="width" secondItem="yDU-mP-3U2" secondAttribute="width" multiplier="0.725" id="T2a-zj-BXL"/>
+                                            <constraint firstItem="yDU-mP-3U2" firstAttribute="height" secondItem="G9P-Xi-tce" secondAttribute="height" id="sbZ-9P-iaA"/>
+                                        </constraints>
+                                    </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QLB-C3-pnL" userLabel="ButtonView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                        <rect key="frame" x="0.0" y="288.5" width="414" height="96"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udQ-3W-ovJ">
-                                                <rect key="frame" x="41.5" y="13" width="331" height="102.5"/>
+                                                <rect key="frame" x="41.5" y="9.5" width="331" height="77"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Start Scanning">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,10 +107,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-b2-r91" userLabel="TableViewHolder">
-                                        <rect key="frame" x="0.0" y="128" width="414" height="641"/>
+                                        <rect key="frame" x="0.0" y="384.5" width="414" height="384.5"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQ8-tw-mSK">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="641"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="384.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
                                         </subviews>
@@ -67,7 +125,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="bmf-b2-r91" firstAttribute="width" secondItem="py3-OL-fds" secondAttribute="width" id="7b6-Rz-cMN"/>
-                                    <constraint firstItem="bmf-b2-r91" firstAttribute="height" secondItem="QLB-C3-pnL" secondAttribute="height" multiplier="5" id="qe6-jg-FUW"/>
+                                    <constraint firstItem="G9P-Xi-tce" firstAttribute="width" secondItem="py3-OL-fds" secondAttribute="width" id="YMu-z2-0od"/>
+                                    <constraint firstItem="G9P-Xi-tce" firstAttribute="height" secondItem="Y9h-yL-CDG" secondAttribute="height" multiplier="2" id="h2e-RQ-cCi"/>
+                                    <constraint firstItem="Y9h-yL-CDG" firstAttribute="width" secondItem="py3-OL-fds" secondAttribute="width" id="jtB-kV-8mp"/>
+                                    <constraint firstItem="bmf-b2-r91" firstAttribute="height" secondItem="Y9h-yL-CDG" secondAttribute="height" multiplier="4" id="m5B-GO-wKx"/>
+                                    <constraint firstItem="QLB-C3-pnL" firstAttribute="height" secondItem="Y9h-yL-CDG" secondAttribute="height" id="qAj-N5-Kxn"/>
                                     <constraint firstItem="QLB-C3-pnL" firstAttribute="width" secondItem="py3-OL-fds" secondAttribute="width" id="sxz-RC-TZH"/>
                                 </constraints>
                             </stackView>
@@ -132,8 +194,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bt710-clip" width="1175" height="1174"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
+        <image name="v2soft-logo" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
