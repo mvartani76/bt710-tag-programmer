@@ -1,24 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="bletest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="py3-OL-fds">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QLB-C3-pnL" userLabel="ButtonView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="136.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udQ-3W-ovJ">
+                                                <rect key="frame" x="41.5" y="13.5" width="331" height="109"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Start Scanning">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="scanForPeripherals:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WfA-gZ-bzq"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="udQ-3W-ovJ" firstAttribute="centerY" secondItem="QLB-C3-pnL" secondAttribute="centerY" id="CA8-ke-SPV"/>
+                                            <constraint firstItem="udQ-3W-ovJ" firstAttribute="centerX" secondItem="QLB-C3-pnL" secondAttribute="centerX" id="KSZ-o4-yvJ"/>
+                                            <constraint firstItem="udQ-3W-ovJ" firstAttribute="height" secondItem="QLB-C3-pnL" secondAttribute="height" multiplier="0.8" id="e90-3A-EqV"/>
+                                            <constraint firstItem="udQ-3W-ovJ" firstAttribute="width" secondItem="QLB-C3-pnL" secondAttribute="width" multiplier="0.8" id="nwg-kP-96k"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-b2-r91" userLabel="TableViewHolder">
+                                        <rect key="frame" x="0.0" y="136.5" width="414" height="681.5"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQ8-tw-mSK">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="681.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="QQ8-tw-mSK" firstAttribute="height" secondItem="bmf-b2-r91" secondAttribute="height" id="7fD-1N-qBn"/>
+                                            <constraint firstItem="QQ8-tw-mSK" firstAttribute="centerX" secondItem="bmf-b2-r91" secondAttribute="centerX" id="Y2p-Zo-mOM"/>
+                                            <constraint firstItem="QQ8-tw-mSK" firstAttribute="centerY" secondItem="bmf-b2-r91" secondAttribute="centerY" id="jK8-2q-HCs"/>
+                                            <constraint firstItem="QQ8-tw-mSK" firstAttribute="width" secondItem="bmf-b2-r91" secondAttribute="width" id="oun-7u-f0p"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bmf-b2-r91" firstAttribute="width" secondItem="py3-OL-fds" secondAttribute="width" id="7b6-Rz-cMN"/>
+                                    <constraint firstItem="bmf-b2-r91" firstAttribute="height" secondItem="QLB-C3-pnL" secondAttribute="height" multiplier="5" id="qe6-jg-FUW"/>
+                                    <constraint firstItem="QLB-C3-pnL" firstAttribute="width" secondItem="py3-OL-fds" secondAttribute="width" id="sxz-RC-TZH"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="py3-OL-fds" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2R5-SO-ycv"/>
+                            <constraint firstItem="py3-OL-fds" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Non-Sj-sEa"/>
+                            <constraint firstItem="py3-OL-fds" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" id="pR8-qD-pkm"/>
+                            <constraint firstItem="py3-OL-fds" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="w67-cK-gfT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="deviceTableView" destination="QQ8-tw-mSK" id="HUH-BE-RY6"/>
+                        <outlet property="scanButton" destination="udQ-3W-ovJ" id="UlJ-Ip-COb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="20" y="31"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
