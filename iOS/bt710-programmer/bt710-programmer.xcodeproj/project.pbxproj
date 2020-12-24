@@ -16,6 +16,8 @@
 		225935F025939EC5005E818F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 225935EE25939EC5005E818F /* LaunchScreen.storyboard */; };
 		225935FB2593B514005E818F /* SingleTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225935FA2593B514005E818F /* SingleTagViewController.swift */; };
 		225936072593E888005E818F /* BatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225936062593E888005E818F /* BatchViewController.swift */; };
+		2259360A2593F99D005E818F /* BatchProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225936092593F99D005E818F /* BatchProgramViewController.swift */; };
+		2259360F25942332005E818F /* BatchRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259360E25942332005E818F /* BatchRegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		225935F125939EC5005E818F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225935FA2593B514005E818F /* SingleTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagViewController.swift; sourceTree = "<group>"; };
 		225936062593E888005E818F /* BatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchViewController.swift; sourceTree = "<group>"; };
+		225936092593F99D005E818F /* BatchProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchProgramViewController.swift; sourceTree = "<group>"; };
+		2259360E25942332005E818F /* BatchRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchRegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				225935E425939EC4005E818F /* ViewController.swift */,
 				225935FA2593B514005E818F /* SingleTagViewController.swift */,
 				225935E625939EC4005E818F /* Main.storyboard */,
+				2259360E25942332005E818F /* BatchRegisterViewController.swift */,
+				225936092593F99D005E818F /* BatchProgramViewController.swift */,
 				225936062593E888005E818F /* BatchViewController.swift */,
 				225935EC25939EC5005E818F /* Assets.xcassets */,
 				225935EE25939EC5005E818F /* LaunchScreen.storyboard */,
@@ -150,7 +156,9 @@
 				225935FB2593B514005E818F /* SingleTagViewController.swift in Sources */,
 				225935E125939EC4005E818F /* AppDelegate.swift in Sources */,
 				225936072593E888005E818F /* BatchViewController.swift in Sources */,
+				2259360A2593F99D005E818F /* BatchProgramViewController.swift in Sources */,
 				225935EB25939EC4005E818F /* bt710_programmer.xcdatamodeld in Sources */,
+				2259360F25942332005E818F /* BatchRegisterViewController.swift in Sources */,
 				225935E325939EC4005E818F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
