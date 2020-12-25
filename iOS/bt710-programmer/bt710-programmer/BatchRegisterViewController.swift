@@ -14,6 +14,7 @@ class BatchRegisterViewController: UIViewController, UITableViewDelegate,  UITab
     
     let cellReuseIdentifier = "RegisterListCell"
     
+    // This will be configured via cloud
     var customerLists : [String] = ["Kiewet", "MacArthur", "Stepan", "V2Soft"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,6 +31,10 @@ class BatchRegisterViewController: UIViewController, UITableViewDelegate,  UITab
         return cell
     }
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
