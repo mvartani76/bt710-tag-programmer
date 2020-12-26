@@ -31,6 +31,9 @@ class BatchRegisterViewController: UIViewController, UITableViewDelegate,  UITab
         return cell
     }
     
+    @IBAction func chooseButtonPressed(_ sender: Any) {
+    }
+    
     @IBAction func cancelButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
