@@ -344,6 +344,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="P5L-LI-uNQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DvY-5r-g4y">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -710,8 +711,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nw-pS-l5m" userLabel="LabelView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the Parameter Set to Program the BT710 Devices" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tU-hI-pSu">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the customer to register and assign the BT710 Devices to" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tU-hI-pSu" userLabel="titleLabel">
+                                                <rect key="frame" x="20.5" y="6.5" width="373" height="121.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -720,8 +721,8 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="1tU-hI-pSu" firstAttribute="centerY" secondItem="4nw-pS-l5m" secondAttribute="centerY" id="YI3-JI-SNG"/>
-                                            <constraint firstItem="1tU-hI-pSu" firstAttribute="height" secondItem="4nw-pS-l5m" secondAttribute="height" id="bmE-kn-dsD"/>
-                                            <constraint firstItem="1tU-hI-pSu" firstAttribute="width" secondItem="4nw-pS-l5m" secondAttribute="width" id="cZN-qd-GKy"/>
+                                            <constraint firstItem="1tU-hI-pSu" firstAttribute="height" secondItem="4nw-pS-l5m" secondAttribute="height" multiplier="0.9" id="bmE-kn-dsD"/>
+                                            <constraint firstItem="1tU-hI-pSu" firstAttribute="width" secondItem="4nw-pS-l5m" secondAttribute="width" multiplier="0.9" id="cZN-qd-GKy"/>
                                             <constraint firstItem="1tU-hI-pSu" firstAttribute="centerX" secondItem="4nw-pS-l5m" secondAttribute="centerX" id="kim-fD-OPF"/>
                                         </constraints>
                                     </view>
