@@ -7,11 +7,14 @@
 
 import UIKit
 import CoreBluetooth
+import Firebase
 
 class BatchProgramViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource {
     
     @IBOutlet var programListTableView: UITableView!
-    
+
+    var ref: DatabaseReference!
+
     let cellReuseIdentifier = "ProgramListCell"
     
     var programLists : [String] = ["Kiewet Settings", "MacArthur Settings", "V2Soft Settings", "Default Settings"]
@@ -45,5 +48,24 @@ class BatchProgramViewController: UIViewController, UITableViewDelegate,  UITabl
 
         programListTableView.delegate = self
         programListTableView.dataSource = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        // Grab the company information to register tags
+        ref = Database.database().reference()
+
+        ref.child("BatchProgram").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let cloudProgramLists = value?.allKeys as! [String]
+
+            // Assuming if the code got to this section, cloudCustomerLists exists and has some members
+            self.programLists = cloudProgramLists
+            self.programListTableView.reloadData()
+
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
 }
