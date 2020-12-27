@@ -271,7 +271,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="mfG-7l-66o" kind="presentation" id="3TV-r0-jgu"/>
+                                                    <segue destination="mfG-7l-66o" kind="presentation" modalPresentationStyle="fullScreen" id="3TV-r0-jgu"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -299,7 +299,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="Uwb-Uw-Eju" kind="presentation" id="pCm-co-Ju7"/>
+                                                    <segue destination="Uwb-Uw-Eju" kind="presentation" modalPresentationStyle="fullScreen" id="pCm-co-Ju7"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -562,17 +562,17 @@
             <objects>
                 <viewController title="SingleTagViewController" id="mfG-7l-66o" userLabel="BatchProgramDetail" customClass="BatchProgramViewController" customModule="bt710_programmer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qkr-5V-bMs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mC0-yq-jMc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0a-cA-Kgb" userLabel="LabelView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="136.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the Parameter Set to Program the BT710 Devices" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRU-AA-ZKz">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="136.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -587,10 +587,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ttr-lF-Pcz" userLabel="TableViewContainer">
-                                        <rect key="frame" x="0.0" y="134.5" width="414" height="539"/>
+                                        <rect key="frame" x="0.0" y="136.5" width="414" height="545"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eos-k7-BvB">
-                                                <rect key="frame" x="41.5" y="54" width="331" height="431"/>
+                                                <rect key="frame" x="41.5" y="54.5" width="331" height="436"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
                                         </subviews>
@@ -603,13 +603,13 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKW-pb-bgQ" userLabel="ButtonsHorizontalStackView">
-                                        <rect key="frame" x="0.0" y="673.5" width="414" height="134.5"/>
+                                        <rect key="frame" x="0.0" y="681.5" width="414" height="136.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="in3-iB-aOH" userLabel="OKButtonView">
-                                                <rect key="frame" x="0.0" y="0.0" width="207" height="134.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="136.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHB-pt-dYl">
-                                                        <rect key="frame" x="26" y="33.5" width="155" height="67.5"/>
+                                                        <rect key="frame" x="26" y="34.5" width="155" height="68"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Choose">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -633,10 +633,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbc-qU-Zma" userLabel="CancelButtonView">
-                                                <rect key="frame" x="207" y="0.0" width="207" height="134.5"/>
+                                                <rect key="frame" x="207" y="0.0" width="207" height="136.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99d-0I-Fm3">
-                                                        <rect key="frame" x="26" y="33.5" width="155" height="67.5"/>
+                                                        <rect key="frame" x="26" y="34.5" width="155" height="68"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Cancel">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -702,17 +702,17 @@
             <objects>
                 <viewController title="SingleTagViewController" id="Uwb-Uw-Eju" userLabel="BatchRegisterDetail" customClass="BatchRegisterViewController" customModule="bt710_programmer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j0a-ZS-iKB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yoK-UA-4OT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nw-pS-l5m" userLabel="LabelView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="136.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the customer to register and assign the BT710 Devices to" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tU-hI-pSu" userLabel="titleLabel">
-                                                <rect key="frame" x="20.5" y="6.5" width="373" height="121.5"/>
+                                                <rect key="frame" x="20.5" y="7" width="373" height="122.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -727,10 +727,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLy-Kd-nD9" userLabel="TableViewContainer">
-                                        <rect key="frame" x="0.0" y="134.5" width="414" height="539"/>
+                                        <rect key="frame" x="0.0" y="136.5" width="414" height="545"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zsc-U4-cHX" userLabel="Customer List Table View">
-                                                <rect key="frame" x="41.5" y="54" width="331" height="431"/>
+                                                <rect key="frame" x="41.5" y="54.5" width="331" height="436"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
                                         </subviews>
@@ -743,13 +743,13 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8n-gc-VtY" userLabel="ButtonsHorizontalStackView">
-                                        <rect key="frame" x="0.0" y="673.5" width="414" height="134.5"/>
+                                        <rect key="frame" x="0.0" y="681.5" width="414" height="136.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zkl-bw-5Ze" userLabel="OKButtonView">
-                                                <rect key="frame" x="0.0" y="0.0" width="207" height="134.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="136.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXt-lR-P6M">
-                                                        <rect key="frame" x="26" y="33.5" width="155" height="67.5"/>
+                                                        <rect key="frame" x="26" y="34.5" width="155" height="68"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Choose">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -773,10 +773,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFW-iS-zQz" userLabel="CancelButtonView">
-                                                <rect key="frame" x="207" y="0.0" width="207" height="134.5"/>
+                                                <rect key="frame" x="207" y="0.0" width="207" height="136.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWV-tX-tFW">
-                                                        <rect key="frame" x="26" y="33.5" width="155" height="67.5"/>
+                                                        <rect key="frame" x="26" y="34.5" width="155" height="68"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Cancel">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
