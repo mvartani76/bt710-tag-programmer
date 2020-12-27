@@ -7,11 +7,14 @@
 
 import UIKit
 import CoreBluetooth
+import Firebase
 
 class BatchRegisterViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource {
     
     @IBOutlet var customerListTableView: UITableView!
     
+    var ref: DatabaseReference!
+
     let cellReuseIdentifier = "RegisterListCell"
     
     // This will be configured via cloud
@@ -41,10 +44,30 @@ class BatchRegisterViewController: UIViewController, UITableViewDelegate,  UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
         // Register the table view cell class and its reuse id
         self.customerListTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
 
         customerListTableView.delegate = self
         customerListTableView.dataSource = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        // Grab the company information to register tags
+        ref = Database.database().reference()
+
+        ref.child("BatchRegister").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let cloudCustomerLists = value?.allKeys as! [String]
+
+            // Assuming if the code got to this section, cloudCustomerLists exists and has some members
+            self.customerLists = cloudCustomerLists
+            self.customerListTableView.reloadData()
+
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
 }
