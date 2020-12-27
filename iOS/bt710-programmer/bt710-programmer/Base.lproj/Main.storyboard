@@ -416,6 +416,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="downloadParams:" destination="K1z-72-VSU" eventType="touchUpInside" id="h94-q5-exJ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -441,6 +444,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="uploadParams:" destination="K1z-72-VSU" eventType="touchUpInside" id="WJF-kw-W5g"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -466,6 +472,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="registerDevice:" destination="K1z-72-VSU" eventType="touchUpInside" id="dXg-FW-zRU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -505,6 +514,7 @@
                     <navigationItem key="navigationItem" id="a3j-cj-Vh8"/>
                     <connections>
                         <outlet property="downloadButton" destination="vv7-cV-nO9" id="uVw-sS-TmJ"/>
+                        <outlet property="registerButton" destination="4M4-3e-2gy" id="M03-wn-28B"/>
                         <outlet property="singleTagTitle" destination="Zvr-GD-Wt6" id="7xK-77-lMB"/>
                         <outlet property="uploadButton" destination="0j0-Z5-lLE" id="9Uu-UH-mGW"/>
                     </connections>

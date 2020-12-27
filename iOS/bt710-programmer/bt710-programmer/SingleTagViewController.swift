@@ -13,7 +13,17 @@ class SingleTagViewController: UIViewController {
     @IBOutlet var singleTagTitle: UILabel!
     @IBOutlet var downloadButton: UIButton!
     @IBOutlet var uploadButton: UIButton!
-    
+    @IBOutlet var registerButton: UIButton!
+
+    @IBAction func downloadParams(_ sender: UIButton) {
+    }
+
+    @IBAction func uploadParams(_ sender: UIButton) {
+    }
+
+    @IBAction func registerDevice(_ sender: UIButton) {
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         singleTagTitle.text = String(format: "Tag %llX Details", device)
     }
