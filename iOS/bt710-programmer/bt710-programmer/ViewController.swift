@@ -7,13 +7,25 @@
 
 import UIKit
 import CoreBluetooth
+import Firebase
 
 class DeviceTableCell: UITableViewCell {
     @IBOutlet var deviceIDLabel: UILabel!
-    
+}
+
+class deviceInfo {
+    var deviceID: UInt?
+    var devicePeripheral: CBPeripheral?
+
+    init(deviceID: UInt, devicePeripheral: CBPeripheral) {
+        self.deviceID = deviceID
+        self.devicePeripheral = devicePeripheral
+    }
 }
 
 class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate, UITableViewDelegate,  UITableViewDataSource {
+
+    static let shared = ViewController()
 
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "DeviceCell"
@@ -22,7 +34,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     @IBOutlet var deviceTableView: UITableView!
     
     var scanning = false
-    var devices : [UInt] = []
+    //var devices : [UInt] = []
+    var devices : [deviceInfo] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return devices.count
@@ -32,19 +45,20 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         let cell:DeviceTableCell = self.deviceTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! DeviceTableCell
 
         let device = devices[indexPath.row]
-        cell.textLabel?.text = String(format:"%llX", device)
+        cell.textLabel?.text = String(format:"%llX", device.deviceID!)
         cell.textLabel?.textAlignment = .center
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedDevice = devices[indexPath.row]
-        let selectedDeviceStr = String(format: "%llX", selectedDevice)
+        let selectedDevice = devices[indexPath.row].deviceID
+        let selectedDeviceStr = String(format: "%llX", selectedDevice!)
         print("device at row \(indexPath.row) is \(selectedDeviceStr)")
         scanButton.setTitle("Start Scanning", for: .normal)
         scanning = false
         centralManager.stopScan()
+        self.myPeripheral = devices[indexPath.row].devicePeripheral
         /*
         if let viewController = storyboard?.instantiateViewController(identifier: "SingleTagViewController") as? SingleTagViewController {
                 viewController.device = selectedDevice
@@ -79,7 +93,9 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                 let deviceID = UInt(deviceID1) + UInt(deviceID2) << 16 + UInt(deviceID3) << 32
                 
                 print(String(format: "%llX", deviceID ))
-                if (!devices.contains(deviceID) && (deviceID != 0)) { devices.append(deviceID)
+
+                //if (!results.contains(deviceID) && (deviceID != 0)) {
+                if (!isInObject(devices: devices, deviceID: deviceID) && (deviceID != 0)) { devices.append(deviceInfo(deviceID: deviceID, devicePeripheral: peripheral))
                     self.deviceTableView.reloadData()
                 }
             }
@@ -123,6 +139,15 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         }
     }
     
+    func isInObject(devices : [deviceInfo], deviceID : UInt) -> Bool {
+        for i in 0..<devices.count {
+            if devices[i].deviceID == deviceID {
+                return true
+            }
+        }
+        return false
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         /*if let target = segue.instantiateViewController(identifier: "SingleTagViewController") as? SingleTagViewController {
             target.device = devices[selectedPath.row]
@@ -131,11 +156,18 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         if segue.identifier == "ShowSingleDetail",
            let destination = segue.destination as? SingleTagViewController,
            let selectedPath = deviceTableView.indexPathForSelectedRow?.row {
-            destination.device = devices[selectedPath]
+            destination.device = devices[selectedPath].deviceID!
+            //destination.myPeripheral = self.myPeripheral
 
+            //set the manager's delegate to the scan view so it can call relevant connection methods
+            centralManager?.delegate = destination as CBCentralManagerDelegate
+            destination.manager = centralManager
+            destination.myPeripheral = self.myPeripheral
+            destination.parentView = self
+            print("in segue")
+            print(destination.myPeripheral)
         }
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,8 +184,20 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         deviceTableView.delegate = self
         deviceTableView.dataSource = self
         deviceTableView.register(DeviceTableCell.self, forCellReuseIdentifier: "DeviceCell")
+
+        let storage = Storage.storage()
+        let storageReference = storage.reference().child("parameter-files")
+        storageReference.listAll { (result,error) in
+            if let error = error {
+                print(error)
+            }
+            for prefix in result.prefixes {
+                print("prefix = \(prefix)")
+            }
+            for item in result.items {
+                print("item = \(item)")
+            }
+        }
     }
-
-
 }
 

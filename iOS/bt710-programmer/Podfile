@@ -12,6 +12,7 @@ target 'bt710-programmer' do
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'McuManager', '~> 0.11.0'
   # add pods for any other desired Firebase products
   # https://firebase.google.com/docs/ios/setup#available-pods
 

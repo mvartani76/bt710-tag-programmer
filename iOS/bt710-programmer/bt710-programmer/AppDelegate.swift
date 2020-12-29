@@ -8,6 +8,8 @@
 import UIKit
 import CoreData
 import Firebase
+import os.log
+import McuManager
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -76,6 +78,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+}
 
+extension AppDelegate: McuMgrLogDelegate {
+    
+    public func log(_ msg: String,
+                    ofCategory category: McuMgrLogCategory,
+                    atLevel level: McuMgrLogLevel) {
+        if #available(iOS 10.0, *) {
+            os_log("%{public}@", log: category.log, type: level.type, msg)
+        } else {
+            NSLog("%@", msg)
+        }
+    }
+    
+}
+
+extension McuMgrLogLevel {
+    
+    /// Mapping from Mcu log levels to system log types.
+    @available(iOS 10.0, *)
+    var type: OSLogType {
+        switch self {
+        case .debug:       return .debug
+        case .verbose:     return .debug
+        case .info:        return .info
+        case .application: return .default
+        case .warning:     return .error
+        case .error:       return .fault
+        }
+    }
+    
+}
+
+extension McuMgrLogCategory {
+    
+    @available(iOS 10.0, *)
+    var log: OSLog {
+        return OSLog(subsystem: Bundle.main.bundleIdentifier!, category: rawValue)
+    }
+    
 }
 
