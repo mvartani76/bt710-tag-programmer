@@ -446,6 +446,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="uploadParams:" destination="K1z-72-VSU" eventType="touchUpInside" id="WJF-kw-W5g"/>
+                                                    <segue destination="oki-5V-kat" kind="presentation" id="dif-w8-s4I"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -846,6 +847,146 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WED-CX-6j1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2970" y="1404"/>
+        </scene>
+        <!--SingleTagUploadParameters-->
+        <scene sceneID="Mml-e1-e2X">
+            <objects>
+                <viewController title="SingleTagViewController" id="oki-5V-kat" userLabel="SingleTagUploadParameters" customClass="SingleTagFileUploadViewController" customModule="bt710_programmer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pbc-OD-b6f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i3a-5I-1Hf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ch4-t7-jlI" userLabel="LabelView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the parameter file you would like to program the devices with." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEh-sc-8Uf">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="DEh-sc-8Uf" firstAttribute="height" secondItem="Ch4-t7-jlI" secondAttribute="height" id="GQ8-hN-9qo"/>
+                                            <constraint firstItem="DEh-sc-8Uf" firstAttribute="centerY" secondItem="Ch4-t7-jlI" secondAttribute="centerY" id="Sly-b7-2rQ"/>
+                                            <constraint firstItem="DEh-sc-8Uf" firstAttribute="centerX" secondItem="Ch4-t7-jlI" secondAttribute="centerX" id="Yla-IY-bid"/>
+                                            <constraint firstItem="DEh-sc-8Uf" firstAttribute="width" secondItem="Ch4-t7-jlI" secondAttribute="width" id="niW-Jp-xrW"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txj-HX-FKi" userLabel="TableViewContainer">
+                                        <rect key="frame" x="0.0" y="134.5" width="414" height="539"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NCY-tt-1k5" userLabel="File List Table View">
+                                                <rect key="frame" x="41.5" y="54" width="331" height="431"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="NCY-tt-1k5" firstAttribute="height" secondItem="txj-HX-FKi" secondAttribute="height" multiplier="0.8" id="19q-1w-hWK"/>
+                                            <constraint firstItem="NCY-tt-1k5" firstAttribute="width" secondItem="txj-HX-FKi" secondAttribute="width" multiplier="0.8" id="kr6-oH-pya"/>
+                                            <constraint firstItem="NCY-tt-1k5" firstAttribute="centerX" secondItem="txj-HX-FKi" secondAttribute="centerX" id="nUm-c3-a2H"/>
+                                            <constraint firstItem="NCY-tt-1k5" firstAttribute="centerY" secondItem="txj-HX-FKi" secondAttribute="centerY" id="wP2-JJ-PSU"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMn-1m-Yct" userLabel="ButtonsHorizontalStackView">
+                                        <rect key="frame" x="0.0" y="673.5" width="414" height="134.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPe-9N-Mcg" userLabel="OKButtonView">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="134.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyK-Bl-lma">
+                                                        <rect key="frame" x="26" y="33.5" width="155" height="67.5"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" title="Choose">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="chooseButtonPressed:" destination="oki-5V-kat" eventType="touchUpInside" id="6dN-zn-xno"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="tyK-Bl-lma" firstAttribute="centerX" secondItem="kPe-9N-Mcg" secondAttribute="centerX" id="FN3-ZL-Yxu"/>
+                                                    <constraint firstItem="tyK-Bl-lma" firstAttribute="height" secondItem="kPe-9N-Mcg" secondAttribute="height" multiplier="0.5" id="bNi-aH-LY1"/>
+                                                    <constraint firstItem="tyK-Bl-lma" firstAttribute="centerY" secondItem="kPe-9N-Mcg" secondAttribute="centerY" id="bmA-wa-RGz"/>
+                                                    <constraint firstItem="tyK-Bl-lma" firstAttribute="width" secondItem="kPe-9N-Mcg" secondAttribute="width" multiplier="0.75" id="cVw-kH-cEZ"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHo-qY-dsY" userLabel="CancelButtonView">
+                                                <rect key="frame" x="207" y="0.0" width="207" height="134.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwA-kZ-Z1p">
+                                                        <rect key="frame" x="26" y="33.5" width="155" height="67.5"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" title="Cancel">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="cancelButtonPressed:" destination="oki-5V-kat" eventType="touchUpInside" id="Kgh-gm-Ucb"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="zwA-kZ-Z1p" firstAttribute="width" secondItem="yHo-qY-dsY" secondAttribute="width" multiplier="0.75" id="0IN-cE-JyN"/>
+                                                    <constraint firstItem="zwA-kZ-Z1p" firstAttribute="centerY" secondItem="yHo-qY-dsY" secondAttribute="centerY" id="8is-9x-A23"/>
+                                                    <constraint firstItem="zwA-kZ-Z1p" firstAttribute="centerX" secondItem="yHo-qY-dsY" secondAttribute="centerX" id="SDl-iM-gH4"/>
+                                                    <constraint firstItem="zwA-kZ-Z1p" firstAttribute="height" secondItem="yHo-qY-dsY" secondAttribute="height" multiplier="0.5" id="rHa-dF-tAo"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="kPe-9N-Mcg" firstAttribute="height" secondItem="pMn-1m-Yct" secondAttribute="height" id="1s4-t7-7RT"/>
+                                            <constraint firstItem="yHo-qY-dsY" firstAttribute="height" secondItem="pMn-1m-Yct" secondAttribute="height" id="Ux2-c7-nht"/>
+                                            <constraint firstItem="yHo-qY-dsY" firstAttribute="width" secondItem="kPe-9N-Mcg" secondAttribute="width" id="xLy-Yo-O4M"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Ch4-t7-jlI" firstAttribute="width" secondItem="i3a-5I-1Hf" secondAttribute="width" id="1kj-Fk-Ty5"/>
+                                    <constraint firstItem="txj-HX-FKi" firstAttribute="height" secondItem="Ch4-t7-jlI" secondAttribute="height" multiplier="4" id="Nbx-xg-T3c"/>
+                                    <constraint firstItem="pMn-1m-Yct" firstAttribute="width" secondItem="i3a-5I-1Hf" secondAttribute="width" id="mJA-Dp-Uks"/>
+                                    <constraint firstItem="pMn-1m-Yct" firstAttribute="height" secondItem="Ch4-t7-jlI" secondAttribute="height" id="n4j-J7-DiB"/>
+                                    <constraint firstItem="txj-HX-FKi" firstAttribute="width" secondItem="i3a-5I-1Hf" secondAttribute="width" id="rd2-m3-SKW"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="H5H-4R-2K1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i3a-5I-1Hf" firstAttribute="width" secondItem="H5H-4R-2K1" secondAttribute="width" id="2JM-5S-Lu4"/>
+                            <constraint firstItem="i3a-5I-1Hf" firstAttribute="height" secondItem="H5H-4R-2K1" secondAttribute="height" id="OMF-nz-yRC"/>
+                            <constraint firstItem="i3a-5I-1Hf" firstAttribute="centerX" secondItem="H5H-4R-2K1" secondAttribute="centerX" id="c9d-sV-Qnw"/>
+                            <constraint firstItem="i3a-5I-1Hf" firstAttribute="centerY" secondItem="H5H-4R-2K1" secondAttribute="centerY" id="dqA-fF-X9d"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Single" image="square.and.arrow.up" catalog="system" id="mcJ-Cg-L9L" userLabel="Single">
+                        <imageReference key="selectedImage" image="square.and.arrow.up" catalog="system" symbolScale="small"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="wxy-EC-rZx"/>
+                    <connections>
+                        <outlet property="fileListTableView" destination="NCY-tt-1k5" id="cDa-1O-R1a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bpI-P0-z4G" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4101" y="-132"/>
         </scene>
     </scenes>
     <resources>

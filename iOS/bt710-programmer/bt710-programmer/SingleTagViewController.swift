@@ -74,7 +74,7 @@ class SingleTagViewController: UIViewController, CBCentralManagerDelegate, CBPer
             let mytext = String(data: data, encoding: .utf8)
             print(mytext)
         
-        _ = fsManager.upload(name: "/lfs/params.txt", data: data, delegate: self)
+       // _ = fsManager.upload(name: "/lfs/params.txt", data: data, delegate: self)
         }
     }
 

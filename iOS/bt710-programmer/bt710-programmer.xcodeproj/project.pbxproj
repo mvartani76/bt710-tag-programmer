@@ -20,6 +20,7 @@
 		2259360F25942332005E818F /* BatchRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259360E25942332005E818F /* BatchRegisterViewController.swift */; };
 		2259361325979AF9005E818F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2259361225979AF9005E818F /* GoogleService-Info.plist */; };
 		225936BF25997725005E818F /* McuMgrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225936BE25997725005E818F /* McuMgrViewController.swift */; };
+		225936C2259AE0DB005E818F /* SingleTagFileUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225936C1259AE0DB005E818F /* SingleTagFileUploadViewController.swift */; };
 		C78745B447EDEE80C59E3DB3 /* Pods_bt710_programmer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975A6C04B9F013D9AF60DC7B /* Pods_bt710_programmer.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		2259360E25942332005E818F /* BatchRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchRegisterViewController.swift; sourceTree = "<group>"; };
 		2259361225979AF9005E818F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		225936BE25997725005E818F /* McuMgrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = McuMgrViewController.swift; sourceTree = "<group>"; };
+		225936C1259AE0DB005E818F /* SingleTagFileUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagFileUploadViewController.swift; sourceTree = "<group>"; };
 		2427173A24B68E4E70390210 /* Pods-bt710-programmer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bt710-programmer.release.xcconfig"; path = "Target Support Files/Pods-bt710-programmer/Pods-bt710-programmer.release.xcconfig"; sourceTree = "<group>"; };
 		2476BB454540B480EA729582 /* Pods-bt710-programmer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bt710-programmer.debug.xcconfig"; path = "Target Support Files/Pods-bt710-programmer/Pods-bt710-programmer.debug.xcconfig"; sourceTree = "<group>"; };
 		975A6C04B9F013D9AF60DC7B /* Pods_bt710_programmer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bt710_programmer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 				225935FA2593B514005E818F /* SingleTagViewController.swift */,
 				225936BE25997725005E818F /* McuMgrViewController.swift */,
 				225935E625939EC4005E818F /* Main.storyboard */,
+				225936C1259AE0DB005E818F /* SingleTagFileUploadViewController.swift */,
 				2259360E25942332005E818F /* BatchRegisterViewController.swift */,
 				225936092593F99D005E818F /* BatchProgramViewController.swift */,
 				225936062593E888005E818F /* BatchViewController.swift */,
@@ -233,6 +236,7 @@
 				225935E125939EC4005E818F /* AppDelegate.swift in Sources */,
 				225936072593E888005E818F /* BatchViewController.swift in Sources */,
 				2259360A2593F99D005E818F /* BatchProgramViewController.swift in Sources */,
+				225936C2259AE0DB005E818F /* SingleTagFileUploadViewController.swift in Sources */,
 				225935EB25939EC4005E818F /* bt710_programmer.xcdatamodeld in Sources */,
 				2259360F25942332005E818F /* BatchRegisterViewController.swift in Sources */,
 				225935E325939EC4005E818F /* SceneDelegate.swift in Sources */,

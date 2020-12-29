@@ -81,11 +81,9 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        //print(String(describing: advertisementData["kCBAdvDataManufacturerData"]))
-        //print(String(describing: CBAdvertisementDataManufacturerDataKey))
         if let manufacturerData = advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data {
             let manufactureID = UInt16(manufacturerData[0]) + UInt16(manufacturerData[1]) << 8
-                //print(String(format: "%04X", manufactureID)) //->000D
+
             if manufactureID == 0x0077 {
                 let deviceID1 =  UInt(manufacturerData[8]) + UInt(manufacturerData[9]) << 8
                 let deviceID2 = UInt(manufacturerData[10]) << 0 + UInt(manufacturerData[11]) << 8
@@ -100,20 +98,6 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                 }
             }
         }
-        
-        //print(peripheral)
-        //print(" \(String(describing: peripheral.name)) \(String(describing: peripheral.identifier.uuidString))")
-        /*if let pname = peripheral.name {
-            if pname == "BT710-9F9F" {
-                centralManager.stopScan()
-                    
-                self.myPeripheral = peripheral
-                peripheral.delegate = self
-                print(peripheral.services)
-                print(advertisementData)
-                centralManager.connect(peripheral, options: nil)
-            }
-        }*/
     }
         
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
@@ -149,23 +133,17 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*if let target = segue.instantiateViewController(identifier: "SingleTagViewController") as? SingleTagViewController {
-            target.device = devices[selectedPath.row]
-        }*/
-        print(segue.identifier)
+
         if segue.identifier == "ShowSingleDetail",
            let destination = segue.destination as? SingleTagViewController,
            let selectedPath = deviceTableView.indexPathForSelectedRow?.row {
             destination.device = devices[selectedPath].deviceID!
-            //destination.myPeripheral = self.myPeripheral
 
             //set the manager's delegate to the scan view so it can call relevant connection methods
             centralManager?.delegate = destination as CBCentralManagerDelegate
             destination.manager = centralManager
             destination.myPeripheral = self.myPeripheral
             destination.parentView = self
-            print("in segue")
-            print(destination.myPeripheral)
         }
     }
 
@@ -184,20 +162,6 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         deviceTableView.delegate = self
         deviceTableView.dataSource = self
         deviceTableView.register(DeviceTableCell.self, forCellReuseIdentifier: "DeviceCell")
-
-        let storage = Storage.storage()
-        let storageReference = storage.reference().child("parameter-files")
-        storageReference.listAll { (result,error) in
-            if let error = error {
-                print(error)
-            }
-            for prefix in result.prefixes {
-                print("prefix = \(prefix)")
-            }
-            for item in result.items {
-                print("item = \(item)")
-            }
-        }
     }
 }
 
