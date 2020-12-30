@@ -446,7 +446,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="uploadParams:" destination="K1z-72-VSU" eventType="touchUpInside" id="WJF-kw-W5g"/>
-                                                    <segue destination="oki-5V-kat" kind="presentation" id="dif-w8-s4I"/>
+                                                    <segue destination="oki-5V-kat" kind="presentation" identifier="ShowSingleFileUpload" id="dif-w8-s4I"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -848,10 +848,10 @@
             </objects>
             <point key="canvasLocation" x="2970" y="1404"/>
         </scene>
-        <!--SingleTagUploadParameters-->
+        <!--SingleTagFileUploadParameters-->
         <scene sceneID="Mml-e1-e2X">
             <objects>
-                <viewController title="SingleTagViewController" id="oki-5V-kat" userLabel="SingleTagUploadParameters" customClass="SingleTagFileUploadViewController" customModule="bt710_programmer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SingleTagViewController" id="oki-5V-kat" userLabel="SingleTagFileUploadParameters" customClass="SingleTagFileUploadViewController" customModule="bt710_programmer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pbc-OD-b6f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -911,7 +911,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="chooseButtonPressed:" destination="oki-5V-kat" eventType="touchUpInside" id="6dN-zn-xno"/>
+                                                            <action selector="chooseButtonPressed:" destination="oki-5V-kat" eventType="touchUpInside" id="JRL-G3-Z9s"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -938,7 +938,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="cancelButtonPressed:" destination="oki-5V-kat" eventType="touchUpInside" id="Kgh-gm-Ucb"/>
+                                                            <action selector="cancelButtonPressed:" destination="oki-5V-kat" eventType="touchUpInside" id="Udf-f6-d80"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -981,6 +981,8 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="wxy-EC-rZx"/>
                     <connections>
+                        <outlet property="cancelButton" destination="zwA-kZ-Z1p" id="g3y-cV-hA0"/>
+                        <outlet property="chooseButton" destination="tyK-Bl-lma" id="gQv-I6-8Gz"/>
                         <outlet property="fileListTableView" destination="NCY-tt-1k5" id="cDa-1O-R1a"/>
                     </connections>
                 </viewController>

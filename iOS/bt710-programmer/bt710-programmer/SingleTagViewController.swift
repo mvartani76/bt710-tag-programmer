@@ -30,7 +30,6 @@ class SingleTagViewController: UIViewController, CBCentralManagerDelegate, CBPer
         print("Upload finished")
     }
     
-    
     var device : UInt = 0
     var myPeripheral:CBPeripheral? = nil
     var peripherals:[CBPeripheral] = []
@@ -59,26 +58,36 @@ class SingleTagViewController: UIViewController, CBCentralManagerDelegate, CBPer
         print("entered uploadParams")
         if let path = Bundle.main.path(forResource: "params", ofType: "txt")
             {
-                print("entered first if let")
                 let fm = FileManager()
                 let exists = fm.fileExists(atPath: path)
                 if(exists){
                     print("enetered exists")
                     let content = fm.contents(atPath: path)
                     let contentAsString = String(data: content!, encoding: String.Encoding.utf8)
-                    print(contentAsString)
                 }
             }
         
         if let data = NSDataAsset(name: "params")?.data {
             let mytext = String(data: data, encoding: .utf8)
-            print(mytext)
         
        // _ = fsManager.upload(name: "/lfs/params.txt", data: data, delegate: self)
         }
     }
 
     @IBAction func registerDevice(_ sender: UIButton) {
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "ShowSingleFileUpload",
+           let destination = segue.destination as? SingleTagFileUploadViewController {
+
+            //set the manager's delegate to the scan view so it can call relevant connection methods
+            manager?.delegate = destination as CBCentralManagerDelegate
+            destination.manager = manager
+            destination.myPeripheral = self.myPeripheral
+            destination.parentView = self
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
