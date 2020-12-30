@@ -29,6 +29,7 @@ class SingleTagFileUploadViewController: UIViewController, CBCentralManagerDeleg
 
     var fsManager: FileSystemManager!
     var fileData: Data?
+    let fileDestinationStr: String = "/lfs/params.txt"
 
     var myPeripheral:CBPeripheral? = nil
     var peripherals:[CBPeripheral] = []
@@ -36,27 +37,62 @@ class SingleTagFileUploadViewController: UIViewController, CBCentralManagerDeleg
     var parentView:SingleTagViewController? = nil
 
     @IBOutlet var fileListTableView: UITableView!
-    @IBOutlet var chooseButton: UIButton!
-    @IBOutlet var cancelButton: UIButton!
+
+    @IBOutlet var actionCancelButton: UIButton!
+
+    @IBOutlet var closeButton: UIButton!
+
+    @IBOutlet var actionStartButton: UIButton!
+    @IBOutlet var actionPauseButton: UIButton!
+    @IBOutlet var actionResumeButton: UIButton!
+
+    @IBOutlet var fileSizeLabel: UILabel!
+    @IBOutlet var fileSize: UILabel!
+    @IBOutlet var fileDestinationLabel: UILabel!
+    @IBOutlet var fileDestination: UILabel!
+    @IBOutlet var fileStatus: UILabel!
+    @IBOutlet var fileStatusLabel: UILabel!
+    @IBOutlet var fileProgress: UIProgressView!
 
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         print("updatestate")
     }
 
     func uploadProgressDidChange(bytesSent: Int, fileSize: Int, timestamp: Date) {
-        print("Upload progress changed...")
+        fileProgress.setProgress(Float(bytesSent) / Float(fileSize), animated: true)
     }
 
     func uploadDidFail(with error: Error) {
-        print("Upload Failed")
+        fileProgress.setProgress(0, animated: true)
+        actionPauseButton.isHidden = true
+        actionResumeButton.isHidden = true
+        actionCancelButton.isHidden = true
+        actionStartButton.isHidden = false
+        //actionSelect.isEnabled = true
+        fileStatus.textColor = .systemRed
+        fileStatus.text = "\(error.localizedDescription)"
     }
 
     func uploadDidCancel() {
-        print("Upload Cancelled")
+        fileProgress.setProgress(0, animated: true)
+        actionPauseButton.isHidden = true
+        actionResumeButton.isHidden = true
+        actionCancelButton.isHidden = true
+        actionStartButton.isHidden = false
+        //actionSelect.isEnabled = true
+        fileStatus.text = "CANCELLED"
     }
 
     func uploadDidFinish() {
-        print("Upload finished")
+        fileProgress.setProgress(0, animated: false)
+        actionPauseButton.isHidden = true
+        actionResumeButton.isHidden = true
+        actionCancelButton.isHidden = true
+        actionStartButton.isHidden = false
+        actionStartButton.isEnabled = false
+        //actionSelect.isEnabled = true
+        fileStatus.text = "UPLOAD COMPLETE"
+        fileData = nil
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,26 +105,65 @@ class SingleTagFileUploadViewController: UIViewController, CBCentralManagerDeleg
         let fileList = fileLists[indexPath.row]
         cell.textLabel?.text = fileList
         cell.textLabel?.textAlignment = .center
-        
-        // Create destination URL
-        //let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as URL
-        //let destinationFileUrl = documentsUrl.appendingPathComponent("params.txt")
-        actualFile = storageReference?.child(fileList)
+
         return cell
     }
     
-    @IBAction func chooseButtonPressed(_ sender: UIButton) {
-        actualFile?.getData(maxSize: 10 * 1024) { data, error in
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let fileList = fileLists[indexPath.row]
+
+        actualFile = storageReference?.child(fileList)
+        actualFile?.getData(maxSize: 10 * 1024) { [self] data, error in
             if let error = error {
                 print("error = \(error)")
             } else {
-                _ = self.fsManager.upload(name: "/lfs/params.txt", data: data!, delegate: self)
+                self.fileData = data
+                fileDestination.text = fileDestinationStr
+                fileSize.text = "\(data!.count) bytes"
+                fileStatus.text = "READY"
+                self.fileSize.isHidden = false
+                self.fileSizeLabel.isHidden = false
+                self.fileStatus.isHidden = false
+                self.fileStatusLabel.isHidden = false
+                self.fileDestination.isHidden = false
+                self.fileDestinationLabel.isHidden = false
+                actionStartButton.isHidden = false
             }
         }
     }
 
-    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+    @IBAction func closeButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func actionStartButtonPressed(_ sender: UIButton) {
+
+        actionStartButton.isHidden = true
+        actionPauseButton.isHidden = false
+        actionCancelButton.isHidden = false
+        //actionSelect.isEnabled = false
+
+        fileStatus.text = "UPLOADING..."
+        _ = self.fsManager.upload(name: fileDestinationStr, data: fileData!, delegate: self)
+        self.fileProgress.isHidden = false
+    }
+
+    @IBAction func actionPauseButtonPressed(_ sender: UIButton) {
+        fileStatus.text = "PAUSED"
+        actionPauseButton.isHidden = true
+        actionResumeButton.isHidden = false
+        self.fsManager.pauseTransfer()
+    }
+
+    @IBAction func actionResumeButtonPressed(_ sender: UIButton) {
+        fileStatus.text = "UPLOADING..."
+        actionPauseButton.isHidden = false
+        actionResumeButton.isHidden = true
+        self.fsManager.continueTransfer()
+    }
+
+    @IBAction func actionCancelButtonPressed(_ sender: UIButton) {
+        self.fsManager.cancelTransfer()
     }
 
     override func viewDidLoad() {
@@ -104,6 +179,22 @@ class SingleTagFileUploadViewController: UIViewController, CBCentralManagerDeleg
     override func viewWillAppear(_ animated: Bool) {
         var cloudFileLists : [String] = []
         var cloudFullPathLists : [Any] = []
+
+        fileProgress.setProgress(0, animated: true)
+
+        self.fileSize.isHidden = true
+        self.fileSizeLabel.isHidden = true
+        self.fileStatus.isHidden = true
+        self.fileStatusLabel.isHidden = true
+        self.fileDestination.isHidden = true
+        self.fileDestinationLabel.isHidden = true
+
+        self.actionStartButton.isHidden = true
+        self.actionPauseButton.isHidden = true
+        self.actionResumeButton.isHidden = true
+        self.actionCancelButton.isHidden = true
+        self.fileProgress.isHidden = true
+
         storage = Storage.storage()
         storageReference = storage?.reference().child("parameter-files")
         storageReference?.listAll { [self] (result,error) in
